@@ -6,6 +6,11 @@
   <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
+  <div class="tema-switch">
+    Alterar tema:
+    <div class="circulo tema-escuro" onclick="setarTema('dark')"></div>
+    <div class="circulo tema-claro" onclick="setarTema('light')"></div>
+  </div>
   <h2>Cadastro</h2>
   <form id="registerForm">
     <input type="text" id="name" placeholder="Nome" required />
@@ -37,5 +42,20 @@
       }
     });
   </script>
+
+  <script>
+  // Função para aplicar o tema e salvar no localStorage
+  function setarTema(tema) {
+    document.documentElement.setAttribute('data-theme', tema);
+    localStorage.setItem('tema', tema);
+  }
+
+  // Aplica o tema salvo (ou usa o tema claro como padrão)
+  (function () {
+    const temaSalvo = localStorage.getItem('tema') || 'light';
+    setarTema(temaSalvo);
+  })();
+</script>
+
 </body>
 </html>
