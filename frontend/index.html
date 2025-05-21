@@ -6,6 +6,11 @@
   <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
+  <div class="tema-switch">
+    <span>Alterar tema</span>
+    <span class="circulo tema-escuro" title="Tema escuro"></span>
+    <span class="circulo tema-claro" title="Tema claro"></span>
+  </div>
   <h2>Login</h2>
   <form id="loginForm">
     <input type="email" id="email" placeholder="E-mail" required />
@@ -36,5 +41,21 @@
       }
     });
   </script>
+  
+  <!--Alterar tema claro/escuro-->
+  <script>
+  const root = document.documentElement;
+  const darkCircle = document.querySelector('.tema-escuro');
+  const lightCircle = document.querySelector('.tema-claro');
+
+  darkCircle.addEventListener('click', () => {
+    root.setAttribute('data-theme', 'dark');
+  });
+
+  lightCircle.addEventListener('click', () => {
+    root.setAttribute('data-theme', 'light');
+  });
+</script>
+
 </body>
 </html>
